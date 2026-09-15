@@ -22,9 +22,11 @@ cask "window-sweaters" do
   # chdir resolves against the real --appdir, so a custom location still works.
   postflight_steps do
     run "/usr/bin/xattr",
-        args:         ["-dr", "com.apple.quarantine", "Window Sweaters.app"],
-        chdir:        { "path" => ".", "base" => "appdir" },
-        must_succeed: false
+        args:           ["-dr", "com.apple.quarantine", "Window Sweaters.app"],
+        chdir:          { "path" => ".", "base" => "appdir" },
+        writable_paths: ["Window Sweaters.app"],
+        writable_base:  "appdir",
+        must_succeed:   false
   end
 
   zap trash: [
