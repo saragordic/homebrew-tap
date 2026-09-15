@@ -20,12 +20,11 @@ cask "window-sweaters" do
   # The app is ad-hoc signed rather than notarized, so without this the user is
   # sent to System Settings to approve an app they just asked Homebrew to install.
   # chdir resolves against the real --appdir, so a custom location still works.
-  postflight_steps do
+  postflight_steps(default_base: :appdir) do
     run "/usr/bin/xattr",
         args:           ["-dr", "com.apple.quarantine", "Window Sweaters.app"],
-        chdir:          { "path" => ".", "base" => "appdir" },
+        chdir:          ".",
         writable_paths: ["Window Sweaters.app"],
-        writable_base:  "appdir",
         must_succeed:   false
   end
 
