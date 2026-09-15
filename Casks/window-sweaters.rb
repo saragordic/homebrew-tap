@@ -16,6 +16,15 @@ cask "window-sweaters" do
 
   app "Window Sweaters.app"
 
+  # Homebrew always quarantines cask downloads and no longer offers an opt-out.
+  # The app is ad-hoc signed rather than notarized, so without this the user is
+  # sent to System Settings on first launch to approve an app they just asked
+  # Homebrew to install.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Window Sweaters.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/Knit Borders",
     "~/Library/Preferences/local.knitborders.app.plist",
