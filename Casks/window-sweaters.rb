@@ -1,6 +1,6 @@
 cask "window-sweaters" do
-  version "1.4.30"
-  sha256 "03037bb50012c373150592df101ccff4d0d470abcbaddcddba4c520128825e0c"
+  version "1.4.31"
+  sha256 "c1acdbc56dafa3efa1d8d6f86af2a4e9d6664bf798642ebdffdce5860366d0c7"
 
   url "https://github.com/saragordic/window-sweaters/releases/download/v#{version}/WindowSweaters-#{version}.zip"
   name "Window Sweaters"
@@ -19,10 +19,11 @@ cask "window-sweaters" do
   # Homebrew always quarantines cask downloads and no longer offers an opt-out.
   # The app is ad-hoc signed rather than notarized, so without this the user is
   # sent to System Settings to approve an app they just asked Homebrew to install.
-  # must_succeed is false so a non-default --appdir does not fail the install.
+  # chdir resolves against the real --appdir, so a custom location still works.
   postflight_steps do
     run "/usr/bin/xattr",
-        args:         ["-dr", "com.apple.quarantine", "/Applications/Window Sweaters.app"],
+        args:         ["-dr", "com.apple.quarantine", "Window Sweaters.app"],
+        chdir:        { "path" => ".", "base" => "appdir" },
         must_succeed: false
   end
 
