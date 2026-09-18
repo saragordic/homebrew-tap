@@ -1,6 +1,6 @@
 cask "window-sweaters" do
-  version "1.4.31"
-  sha256 "c1acdbc56dafa3efa1d8d6f86af2a4e9d6664bf798642ebdffdce5860366d0c7"
+  version "1.5.0"
+  sha256 "6777354004ac1c0fae697824fc4f3f36bdb9a16f0a1c6ea24a70d64205e5a52e"
 
   url "https://github.com/saragordic/window-sweaters/releases/download/v#{version}/WindowSweaters-#{version}.zip"
   name "Window Sweaters"
