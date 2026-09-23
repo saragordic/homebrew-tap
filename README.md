@@ -1,10 +1,11 @@
 # Homebrew tap
 
-Casks for [Window Sweaters](https://github.com/saragordic/window-sweaters).
+Casks for [Window Sweaters](https://github.com/saragordic/window-sweaters) and [Rooms](https://github.com/saragordic/rooms).
 
 ```sh
 brew trust saragordic/tap
 brew install --cask saragordic/tap/window-sweaters
+brew install --cask saragordic/tap/rooms
 ```
 
 Homebrew refuses to load casks from third-party taps until you trust them, so
