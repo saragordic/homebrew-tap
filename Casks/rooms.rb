@@ -1,6 +1,6 @@
 cask "rooms" do
   version "1.0.1"
-  sha256 "ef9af5146bfc201065d4af6b4414fa2c5fdad38c78b78f6c610e25773170e173"
+  sha256 "e5a044f2411d1a073c9292f4a911358dae987581b1a10489f77b38d80d3d5cc0"
 
   url "https://github.com/saragordic/rooms/releases/download/v#{version}/Rooms-#{version}.zip"
   name "Rooms"
